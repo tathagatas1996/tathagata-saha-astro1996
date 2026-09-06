@@ -24,12 +24,12 @@
 html { scroll-behavior: smooth; font-size: 16px; }
 body { background: var(--bg); color: var(--text); font-family: var(--sans); line-height: 1.75; -webkit-font-smoothing: antialiased; }
 
-/* ── SCROLLBAR ── */
+/* -- SCROLLBAR -- */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
 
-/* ── NAV ── */
+/* -- NAV -- */
 nav {
   position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h);
   background: rgba(247, 244, 239, 0.93);
@@ -97,7 +97,7 @@ h2 { font-size: 2rem; margin-bottom: 0.3rem; }
 }
 .hero-links { display: flex; gap: 1rem; flex-wrap: wrap; }
 
-/* ── PHOTO PLACEHOLDER ── */
+/* -- PHOTO PLACEHOLDER -- */
 .photo-wrap {
   width: 260px; height: 360px;
   border: 1px solid var(--border-dark);
@@ -113,7 +113,7 @@ h2 { font-size: 2rem; margin-bottom: 0.3rem; }
 .photo-wrap svg { opacity: 0.4; }
 .hero-inner { display: flex; gap: 4rem; align-items: flex-end; }
 
-/* ── BUTTONS ── */
+/* -- BUTTONS -- */
 .btn {
   display: inline-flex; align-items: center; gap: 0.4em;
   padding: 0.6rem 1.4rem; border-radius: 2px;
@@ -128,7 +128,7 @@ h2 { font-size: 2rem; margin-bottom: 0.3rem; }
 .btn-outline { background: transparent; color: var(--accent); border-color: var(--accent); }
 .btn-outline:hover { background: var(--accent-light); }
 
-/* ── ABOUT (index) ── */
+/* -- ABOUT (index) -- */
 .about-grid { display: grid; grid-template-columns: 1fr; max-width: 150%; gap: 4rem; align-items: start; }
 .about-bio { font-size: 1.2rem; color: var(--text-muted); text-align: justify; }
 .about-bio p + p { margin-top: 1.1rem; }
@@ -149,7 +149,7 @@ h2 { font-size: 2rem; margin-bottom: 0.3rem; }
 .tag {
   font-family: var(--mono); font-size: 0.9rem;
   letter-spacing: 0.06em; padding: 0.35rem 0.8rem;
-  border: 1px solid var(--border); border-radius: 1px;
+  border: 1.0px solid; border-radius: 1px; 
   color: var(--text-muted); background: transparent;
   transition: all 0.2s;
 }
@@ -165,13 +165,13 @@ h2 { font-size: 2rem; margin-bottom: 0.3rem; }
 .profile-link:hover { color: var(--accent); }
 .profile-link-label { font-family: var(--mono); font-size: 1.0rem; letter-spacing: 0.08em; color: var(--text-light); width: 80px; flex-shrink: 0; }
 
-/* ── RESEARCH PAGE ── */
+/* -- RESEARCH PAGE -- */
 .research-block {  font-size: 1.05rem; color: var(--text-muted); max-width: 1000px; line-height: 1.85; text-align: justify;}
 .research-block h3 { font-size: 1.4rem; margin-bottom: 0.75rem; }
 .vertical-rule { border-left: 2px solid var(--accent); padding-left: 1.5rem; }
 .instrument-list { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
 
-/* ── PUBLICATIONS ── */
+/* -- PUBLICATIONS -- */
 .pub-list { display: flex; flex-direction: column; gap: 0; }
 .pub {
   padding: 1.75rem 0;
@@ -179,16 +179,16 @@ h2 { font-size: 2rem; margin-bottom: 0.3rem; }
   display: grid; grid-template-columns: 60px 1fr; gap: 0 1.5rem;
 }
 .pub:first-child { border-top: var(--rule); }
-.pub-year { font-family: var(--mono); font-size: 0.72rem; color: var(--text-light); padding-top: 0.25rem; }
-.pub h3 { font-family: var(--sans); font-size: 0.975rem; font-weight: 500; line-height: 1.45; margin-bottom: 0.35rem; }
-.pub-authors { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.6rem; }
+.pub-year { font-family: Calibri; font-size: 0.975rem; color: black; padding-top: 0.25rem; }
+.pub h3 { font-family:  Calibri; font-size: 0.975rem; font-weight: 500; line-height: 1.45; margin-bottom: 0.35rem; }
+.pub-authors { font-family: Calibri; font-size: 0.975rem; color: black; margin-bottom: 0.6rem; }
 .pub-authors strong { color: var(--text); }
-.pub-venue { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.06em; color: var(--accent); margin-bottom: 0.6rem; display: block; }
+.pub-venue { font-family: Calibri; font-size: 0.975rem; letter-spacing: 0.06em; color: DarkSlateGrey; margin-bottom: 0.6rem; display: block; }
 .pub-links { display: flex; gap: 1rem; }
-.pub-link { font-size: 0.78rem; font-weight: 500; color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
-.pub-link:hover { border-color: var(--accent); }
+.pub-link { font-family: Calibri; font-size: 0.975rem; font-weight: 500; color: DarkSlateGrey; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+.pub-link:hover { border-color: DarkSlateGrey; }
 
-/* ── CV PAGE ── */
+/* -- CV PAGE -- */
 .cv-grid { display: grid; grid-template-columns: 80px 1fr; gap: 0 3rem; max-width: 200%; }
 .cv-sidebar { border-right: var(--rule); padding-right: 2rem; }
 .cv-nav { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; position: sticky; top: calc(var(--nav-h) + 2rem); }
@@ -202,8 +202,8 @@ h2 { font-size: 2rem; margin-bottom: 0.3rem; }
 .cv-item h3 { font-family: var(--sans); font-size: 0.95rem; font-weight: 500; margin-bottom: 0.2rem; }
 .cv-item p { font-size: 0.85rem; color: var(--text-muted); }
 
-/* ── BEYOND PAGE ── */
-.beyond-bio { font-size: 1.05rem; color: var(--text-muted); max-width: 800px; line-height: 1.85; text-align: justify; }
+/* -- BEYOND PAGE -- */
+.beyond-bio { font-size: 1.05rem; color: black; max-width: 800px; line-height: 1.85; text-align: justify; }
 .beyond-bio p + p { margin-top: 1.1rem; }
 .photo-theme { margin-bottom: 6rem; }
 .photo-theme-title { font-family: var(--serif); font-size: 1.3rem; margin-bottom: 0.4rem; }
