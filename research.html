@@ -14,23 +14,23 @@
   <style>
     .research-cards {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
+      grid-template-columns: 2fr 2fr;
+      gap: 2.5rem;
       margin-top: 3rem;
     }
     .research-card {
-      border: 2.0px solid var(--border);
+      border: 4.0px solid var(--border);
       border-radius: 4px;
       overflow: hidden;
       text-decoration: none;
       color: inherit;
       display: flex;
       flex-direction: column;
-      transition: border-color 0.2s, box-shadow 0.2s;
+      transition: border-color 0.8s, box-shadow 0.8s;
     }
     .research-card:hover {
       border-color: var(--accent);
-      box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+      box-shadow: 0 4px 28px rgba(0,0,0,0.07);
     }
     .research-card-img-placeholder {
       width: 100%;
@@ -89,7 +89,26 @@
       font-family: var(--mono);
       letter-spacing: 0.04em;
     }
-    @media (max-width: 680px) {
+
+    #agn-card-image {
+      width: 550px;
+      height: 550px;
+      object-fit: contain;
+    }
+
+    #xrb-card-image {
+      width: 480px;
+      height: 480px;
+      object-fit: contain;
+    }
+
+    #code-card-image {
+      width: 450px;
+      height: 450px;
+      object-fit: contain;
+    }
+
+    @media (max-width: 0px) {
       .research-cards { grid-template-columns: 1fr; }
     }
   </style>
@@ -116,7 +135,7 @@
       <div class="container">
  
         <span class="eyebrow", style="font-family: Calibri; font-size: 2.4rem; color: darkslategray;">Research</span>
-        <h2>High-energy astrophysics of accreting objects</h2>
+        <!-- <h2>High-energy astrophysics of accreting objects</h2> -->
         <p style="font-family: Calibri; color: black; font-size: 1.4rem; margin: 1.5rem 0 0;">
           My research focuses on how matter accretes onto compact objects across a wide
           range of astrophysical environments. I study systems spanning from stellar-mass
@@ -130,32 +149,47 @@
  
           <a href="research_agn.html" class="research-card">
             <div class="research-card-img-placeholder">
-              <img src="photos/agn-logo.png" alt="AGN research"
+              <img id="agn-card-image" src="photos/agn-logo.png" alt="AGN research"
                    onerror="this.style.display='none'; this.parentNode.textContent='photos/card_agn.png'" />
             </div>
             <div class="research-card-body">
               <span class="research-card-tag" style="font-family: Calibri; font-size: 0.88rem; color: darkslategray; letter-spacing: 0.04em; line-height: 1.5;">AGN · TDE · Changing-look Seyferts</span>
               <h3>Active Galactic Nuclei and Tidal Disruption Events</h3>
               <p>Multiwavelength study of transient accretion events onto supermassive black holes, including changing-look AGNs and TDEs, using eROSITA, XMM-Newton, and optical spectroscopy.</p>
-              <span class="research-card-link" style="font-family: Calibri; font-size: 0.88rem; color: darkslategray; letter-spacing: 0.04em; line-height: 1.5;">Read more..</span>
+              <span class="research-card-link" style="font-family: Calibri; font-size: 0.95rem; color: darkslategray; letter-spacing: 0.04em; line-height: 1.5;">Read more..</span>
             </div>
           </a>
  
           <a href="research_xrb.html" class="research-card">
             <div class="research-card-img-placeholder">
-              <img src="photos/schematic_cartoon_diagram_SySt.png" alt="XRB research"
+              <img id="xrb-card-image" src="photos/schematic_cartoon_diagram_SySt.png" alt="XRB research"
                    onerror="this.style.display='none'; this.parentNode.textContent='photos/card_xrb.png'" />
             </div>
             <div class="research-card-body">
               <span class="research-card-tag" style="font-family: Calibri; font-size: 0.88rem; color: darkslategray; letter-spacing: 0.04em; line-height: 1.5;">X-ray Binaries · Magellanic System · eROSITA</span>
               <h3>Compact Objects in the Magellanic System</h3>
               <p>Identification and characterisation of X-ray binary populations in the Magellanic Clouds and Magellanic Bridge using eROSITA all-sky survey data and multiwavelength counterpart classification.</p>
-              <span class="research-card-link" style="font-family: Calibri; font-size: 0.88rem; color: darkslategray; letter-spacing: 0.04em; line-height: 1.5;">Read more..</span>
+              <span class="research-card-link" style="font-family: Calibri; font-size: 0.95rem; color: darkslategray; letter-spacing: 0.04em; line-height: 1.5;">Read more..</span>
+            </div>
+          </a>
+
+          <a href="research_codes.html" class="research-card">
+            <div class="research-card-img-placeholder">
+              <img id="code-card-image" src="photos/ts_code_logo.png" alt="Codes/Softwares"
+                    onerror="this.style.display='none'; this.parentNode.textContent='photos/card_code.png'" />
+            </div>
+            <div class="research-card-body">
+              <span class="research-card-tag" style="font-family: Calibri; font-size: 0.88rem; color: darkslategray; letter-spacing: 0.04em; line-height: 1.5;">Codes/Software</span>
+              <h3>Codes/scripts over my research years</h3>
+              <p>Writing codes/software is the bread and butter of my research, which is heavily observation based. Most of the codes that I write involve analysis of data, catalogs, images, calibration etc.</p>
+              <span class="research-card-link" style="font-family: Calibri; font-size: 0.95rem; color: darkslategray; letter-spacing: 0.04em; line-height: 1.5;">Read more..</span>
             </div>
           </a>
  
         </div>
       </div>
+
+
 
     <!-- Publications -->
     <section class="section">
