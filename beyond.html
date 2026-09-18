@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<!--Head -->  
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,124 +12,112 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-  .bottom-three {
-     margin-bottom: 1.5cm;
-    }
-    .page .container {
-      margin-left: max(6rem, 9vw);
-      margin-right: auto;
-      max-width: 95%;
-    }
-    .beyond-hero {
-      padding: calc(var(--nav-h) + 4rem) 0 3rem;
-      border-bottom: var(--rule);
-    }
-    .photo-slot img {
-      width: 100%; height: 100%;
-      object-fit: cover; border-radius: 2px;
-    }
-    .art-grid {
+    .research-cards {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 1rem;
+      grid-template-columns: 2fr 2fr;
+      gap: 2.5rem;
+      margin-top: 3rem;
     }
-    .art-slot {
-      aspect-ratio: 3/4;
+    .research-card {
+      border: 4.0px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.8s, box-shadow 0.8s;
+    }
+    .research-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 4px 28px rgba(0,0,0,0.07);
+    }
+    .research-card-img-placeholder {
+      width: 100%;
+      aspect-ratio: 16/9;
       background: var(--accent-light);
-      border: 1px dashed var(--border);
-      border-radius: 2px;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      gap: 0.5rem; color: var(--text-light);
-      font-size: 0.7rem; font-family: var(--mono); text-align: center; padding: 1rem;
-    }
-
-    /* ── LIGHTBOX ── */
-    .photo-grid img, .art-grid img {
-      cursor: zoom-in;
-      transition: opacity 0.2s;
-    }
-    .photo-grid img:hover, .art-grid img:hover { opacity: 0.88; }
-
-    /* ── WATERMARK ── */
-    .photo-wrap-wm {
-      position: relative;
-      display: inline-block;
-      line-height: 0;
-    }
-    .photo-wrap-wm::after {
-      content: '© T. Saha';
-      position: absolute;
-      bottom: 10px; right: 10px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.65rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--text-light);
       letter-spacing: 0.06em;
-      color: rgba(255,255,255,0.85);
-      background: rgba(10,15,25,0.45);
-      padding: 0.2rem 0.5rem;
-      border-radius: 2px;
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 0.25s;
+      overflow: hidden;
     }
-    .photo-wrap-wm:hover::after { opacity: 1; }
-    .photo-wrap-wm img {
+    .research-card-img-placeholder img {
+      width: 95%;
+      height: 95%;
+      object-fit: cover;
       display: block;
-      -webkit-user-drag: none;
-      user-select: none;
+    }
+    .research-card-body {
+      padding: 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .research-card-tag {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      display: block;
+    }
+    .research-card-body h3 {
+      font-size: 1.1rem;
+      line-height: 1.35;
+      margin-bottom: 0.75rem;
+      color: var(--text);
+    }
+    .research-card-body p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      flex: 1;
+    }
+    .research-card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3em;
+      margin-top: 1.25rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--accent);
+      font-family: var(--mono);
+      letter-spacing: 0.04em;
     }
 
-    #lightbox {
-      display: none;
-      position: fixed; inset: 0;
-      background: rgba(10, 15, 25, 0.92);
-      z-index: 1000;
-      align-items: center; justify-content: center;
-      backdrop-filter: blur(6px);
-      cursor: zoom-out;
-    }
-    #lightbox.active { display: flex; }
-    #lightbox img {
-      max-width: 90vw; max-height: 88vh;
+    #agn-card-image {
+      width: 380px;
+      height: 380px;
+      object-position: left;
       object-fit: contain;
-      border-radius: 2px;
-      box-shadow: 0 8px 48px rgba(0,0,0,0.6);
-      cursor: default;
     }
-    #lightbox-close {
-      position: fixed; top: 1.5rem; right: 2rem;
-      font-size: 1.8rem; color: #f7f4ef;
-      cursor: pointer; opacity: 0.7;
-      font-family: var(--sans); line-height: 1;
-      transition: opacity 0.2s;
-      background: none; border: none;
+
+    #xrb-card-image {
+      width: 380px;
+      height: 380px;
+      object-fit: contain;
     }
-    #lightbox-close:hover { opacity: 1; }
-    .lb-arrow {
-      position: fixed;
-      top: 50%; transform: translateY(-50%);
-      background: rgba(10,15,25,0.5);
-      border: 1px solid rgba(255,255,255,0.15);
-      color: #f7f4ef;
-      font-size: 1.4rem; line-height: 1;
-      width: 48px; height: 48px;
-      border-radius: 2px;
-      display: flex; align-items: center; justify-content: center;
-      cursor: pointer; opacity: 0.7;
-      transition: opacity 0.2s;
-      z-index: 1001;
+
+    #code-card-image {
+      width: 320px;
+      height: 320px;
+      object-fit: contain;
     }
-    .lb-arrow:hover { opacity: 1; background: rgba(184,149,106,0.5); }
-    .lb-arrow:disabled { opacity: 0.2; cursor: default; }
-    #lb-prev { left: 1.5rem; }
-    #lb-next { right: 1.5rem; }
-    #lb-counter {
-      position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%);
-      font-family: 'JetBrains Mono', monospace; font-size: 0.7rem;
-      letter-spacing: 0.1em; color: rgba(247,244,239,0.5);
+
+    @media (max-width: 0px) {
+      .research-cards { grid-template-columns: 1fr; }
     }
   </style>
 </head>
+
+
+<!--Head ends here --> 
+
 <body>
 
   <nav>
@@ -140,198 +131,76 @@
   </nav>
 
   <div class="page">
-
-    <!-- ── INTRO ── -->
-    <section class="section beyond-hero">
-      <div class="container">
-        <h2 style="color: darkslategray; font-family: Calibri; font-size: 1.8rem; margin-bottom: 2rem;"> <b>Other things</b> </h2>
-        <div class="beyond-bio">
-          <p style="color: black; font-family: Calibri; font-size: 1.2rem; margin-bottom: 0.8rem;">
-            I am an astrophysicist by training, but I spend a fair amount of time
-            looking and exploring things much closer to Earth.
-          </p>
-          <p style="color: black; font-family: Calibri; font-size: 1.2rem; margin-bottom: 0.8rem;">  
-            I paint, sketch, and draw cartoons and caricatures -- 
-            mostly as a way to represent complicated or sarcastic thoughts 
-            that lose their impact when stated plainly.
-          </p>
-          <p style="color: black; font-family: Calibri; font-size: 1.2rem; margin-bottom: 0.8rem;">
-            Candid photography is a newer obsession. I'm drawn to urban settings and cityscapes: 
-            the geometry of a straight road between buildings, 
-            a skyline from a bridge or rooftop, 
-            a view through a window, 
-            or a street corner where light and shadow create something almost surreal. 
-            Warsaw, Madrid, Paris, Valencia, Mumbai -- 
-            many cities have ended up on my smartphone camera;
-            So have ancient architeture like the cave monastry of Ajanta, cave temples of Ellora, 
-            the ancient city of Pompeii, which are a different kind of awe entirely, 
-            and stretches of nature from hiking trails.
-          </p>
-          <p>
-            Aspiring percussionist, slowly gaining expertise in tabla. Also an aviation enthusiast 
-            and at some point in my life I intend to learn how to fly an aircraft.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- CITIES -->
+    
     <section class="section">
       <div class="container">
-        <h2 style="color: darkslategray; font-size: 1.8rem; margin-bottom: 0.8rem; margin-bottom: 0.2rem;">Urban silhouettes</h2>
+ 
+        <span class="eyebrow", style="font-family: Calibri; font-size: 2.4rem; color: darkslategray;">Beyond Astronomy</span>
+        <!-- <h2>High-energy astrophysics of accreting objects</h2> -->
+        <p style="font-family: Calibri; color: black; font-size: 1.4rem; margin: 1.5rem 0 0;">
+          Although an astrophysicist by training, but I spend a fair amount of time looking and exploring things 
+          very terrestrial.
 
-        <div class="photo-theme" style="margin-top: 2.5rem;">
-          <h3 class="photo-theme-title" style="color: black; font-family: Calibri; font-size: 1.2rem; margin-bottom: 0.8rem;"><b>Looking upward, outward, forward, and beyond</b></h3>
-          <span class="photo-theme-sub" style="color: black; font-family: Calibri; font-size: 1.1rem; margin-bottom: 0.8rem;">Selected random shots from Warsaw, Torun, Leiden, Alicante, Napoli, Munich, Berlin, and Mumbai</span>
-          <div class="photo-grid">
-            <!-- /home/tathagata/Documents/website_TS/files/photos/warsaw/looking_up_out_and_forward/ -->
-            <div class="photo-wrap-wm"><img src="photos/looking_up_out_and_forward/napoli1.jpg" alt="Tathagata Saha" style="width:260px;height:360px;object-fit:cover;border-radius:2px;border:1px solid rgba(255,255,255,0.1);" /></div>
-            <div class="photo-wrap-wm"><img src="photos/looking_up_out_and_forward/munich1.jpg" alt="Tathagata Saha" style="width:260px;height:360px;object-fit:cover;border-radius:2px;border:1px solid rgba(255,255,255,0.1);" /></div>
-            <div class="photo-wrap-wm"><img src="photos/looking_up_out_and_forward/alicante1.jpg" alt="Tathagata Saha" style="width:260px;height:360px;object-fit:cover;border-radius:2px;border:1px solid rgba(255,255,255,0.1);" /></div>
-            <div class="photo-wrap-wm"><img src="photos/looking_up_out_and_forward/torun1.jpg" alt="Tathagata Saha" style="width:260px;height:360px;object-fit:cover;border-radius:2px;border:1px solid rgba(255,255,255,0.1);" /></div>
-          </div>
-          <p class="bottom-three"> </p>
-          <div class="photo-grid">
-            <div class="photo-wrap-wm"><img src="photos/looking_up_out_and_forward/warsaw1.jpg" alt="Tathagata Saha" style="width:260px;height:360px;object-fit:cover;border-radius:2px;border:1px solid rgba(255,255,255,0.1);" /></div>
-            <div class="photo-wrap-wm"><img src="photos/looking_up_out_and_forward/berlin1.jpg" alt="Tathagata Saha" style="width:260px;height:360px;object-fit:cover;border-radius:2px;border:1px solid rgba(255,255,255,0.1);" /></div>
-            <div class="photo-wrap-wm"><img src="photos/looking_up_out_and_forward/leiden1.jpg" alt="Tathagata Saha" style="width:260px;height:360px;object-fit:cover;border-radius:2px;border:1px solid rgba(255,255,255,0.1);" /></div>
-            <div class="photo-wrap-wm"><img src="photos/looking_up_out_and_forward/valencia1.jpg" alt="Tathagata Saha" style="width:260px;height:360px;object-fit:cover;border-radius:2px;border:1px solid rgba(255,255,255,0.1);" /></div>
-          </div>
-          <p class="bottom-three"> </p>
-          <div class="photo-grid">
-            <div class="photo-wrap-wm"><img src="photos/looking_up_out_and_forward/valencia2.jpg" alt="Tathagata Saha" style="width:260px;height:360px;object-fit:cover;border-radius:2px;border:1px solid rgba(255,255,255,0.1);" /></div>
-            <div class="photo-wrap-wm"><img src="photos/looking_up_out_and_forward/mumbai1.jpg" alt="Tathagata Saha" style="width:260px;height:360px;object-fit:cover;border-radius:2px;border:1px solid rgba(255,255,255,0.1);" /></div>
-          </div>  
+          I paint, sketch, and draw cartoons and caricatures; mostly as a way to represent complicated or sarcastic 
+          thoughts that lose their impact when stated in plain words.
+
+          Candid photography is a newer obsession. I'm drawn to urban settings and cityscapes: the geometry of a 
+          straight road between buildings, a skyline from a bridge or rooftop, a view through a window, or a street corner 
+          where light and shadow create something almost surreal. Warsaw, Madrid, Paris, Valencia, Mumbai -- many cities have 
+          ended up on my smartphone camera; So have ancient architeture like the cave monastry of Ajanta, cave temples of 
+          Ellora, the ancient city of Pompeii, which are a different kind of awe entirely, and stretches of nature from hiking 
+          trails.
+
+          Aspiring percussionist, slowly gaining expertise in tabla. Also an aviation enthusiast and at some point in my life 
+          I intend to learn how to fly an aircraft.
+        </p>
+ 
+        <div class="research-cards">
+ 
+          <a href="beyond_urban.html" class="research-card">
+            <div class="research-card-img-placeholder">
+              <img id="agn-card-image" src="photos/urban_silhouettes_v2.png" alt=""
+                   onerror="this.style.display='none'; this.parentNode.textContent='photos/urban_silhouettes_v2.png'" />
+            </div>
+            <div class="research-card-body">
+              <span class="research-card-tag" style="font-family: Calibri; font-size: 0.88rem; color: darkslategray; letter-spacing: 0.04em; line-height: 1.5;">Cities - artificial and beautiful</span>
+              <h3>Urban Silhouettes</h3>
+              <p style="color: black;">Lost amid the exuberant vitality of human agglomerations</p>
+              <span class="research-card-link" style="font-family: Calibri; font-size: 0.95rem; color: darkslategray; letter-spacing: 0.04em; line-height: 1.5;">See more..</span>
+            </div>
+          </a>
+ 
+          <a href="beyond_history.html" class="research-card">
+            <div class="research-card-img-placeholder">
+              <img id="xrb-card-image" src="photos/temple_image.png" alt="Temples"
+                   onerror="this.style.display='none'; this.parentNode.textContent='photos/temple_image.png'" />
+            </div>
+            <div class="research-card-body">
+              <span class="research-card-tag" style="font-family: Calibri; font-size: 0.88rem; color: darkslategray; letter-spacing: 0.04em; line-height: 1.5;">History</span>
+              <h3>Temples, Monastries, and  Caves</h3>
+              <p style="color:black"> Tathagata from the current era meets Tathagata from BCE at his residence, the Ajanta cave monastry.....</p>
+              <span class="research-card-link" style="font-family: Calibri; font-size: 0.95rem; color: darkslategray; letter-spacing: 0.04em; line-height: 1.5;">See more..</span>
+            </div>
+          </a>
+
+          <a href="beyond_studio.html" class="research-card">
+            <div class="research-card-img-placeholder">
+              <img id="code-card-image" src="photos/studio_work.png" alt="Studio Work"
+                    onerror="this.style.display='none'; this.parentNode.textContent='photos/card_code.png'" />
+            </div>
+            <div class="research-card-body">
+              <span class="research-card-tag" style="font-family: Calibri; font-size: 0.88rem; color: darkslategray; letter-spacing: 0.04em; line-height: 1.5;">Studio work</span>
+              <p style="color: black;">Random scribbles when I get bored.</p>
+              <span class="research-card-link" style="font-family: Calibri; font-size: 0.95rem; color: darkslategray; letter-spacing: 0.04em; line-height: 1.5;">See more..</span>
+            </div>
+          </a>
+ 
         </div>
       </div>
-    </section>
-
-    <!-- TEMPLES -->
-    <section class="section">
-      <div class="container">
-        <h2 style="color: darkslategray; font-size: 1.8rem; margin-bottom: 0.8rem; margin-bottom: 0.2rem;">Caves and/or temples</h2>
-        <div class="photo-theme" style="margin-top: 2.5rem;">
-        <h3 class="photo-theme-title" style="color: black; font-family: Calibri; font-size: 1.2rem; margin-bottom: 0.8rem;"><b>The abode of mythological Gods and demons</b></h3>
-        <span class="photo-theme-sub" style="color: black; font-family: Calibri; font-size: 1.1rem; margin-bottom: 0.8rem;">Ajanta, Ellora</span>
-          
-
-          <div class="photo-grid">
-            <div class="photo-wrap-wm"><img src="photos/cave_temples/ajanta1.jpg" alt="Tathagata Saha" style="width:260px;height:360px;object-fit:cover;border-radius:2px;border:1px solid rgba(255,255,255,0.1);" /></div>
-            <div class="photo-wrap-wm"><img src="photos/cave_temples/ajanta2.jpg" alt="Tathagata Saha" style="width:260px;height:360px;object-fit:cover;border-radius:2px;border:1px solid rgba(255,255,255,0.1);" /></div>
-            <div class="photo-wrap-wm"><img src="photos/cave_temples/ellora1.jpg" alt="Tathagata Saha" style="width:260px;height:360px;object-fit:cover;border-radius:2px;border:1px solid rgba(255,255,255,0.1);" /></div>
-            <div class="photo-wrap-wm"><img src="photos/cave_temples/ellora2.jpg" alt="Tathagata Saha" style="width:260px;height:360px;object-fit:cover;border-radius:2px;border:1px solid rgba(255,255,255,0.1);" /></div>
-          </div>
-          <p class="bottom-three"> </p>
-          <div class="photo-grid">
-            <div class="photo-wrap-wm"><img src="photos/cave_temples/ellora3.jpg" alt="Tathagata Saha" style="width:260px;height:360px;object-fit:cover;border-radius:2px;border:1px solid rgba(255,255,255,0.1);" /></div>
-            <div class="photo-wrap-wm"><img src="photos/cave_temples/ellora4.jpg" alt="Tathagata Saha" style="width:260px;height:360px;object-fit:cover;border-radius:2px;border:1px solid rgba(255,255,255,0.1);" /></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── ART ── -->
-   <!-- ── ART ── -->
-    <section class="section">
-      <div class="container">
-        <h2 style="color: darkslategray; font-size: 1.8rem; margin-bottom: 0.8rem; margin-bottom: 0.2rem;">Studio Work</h2>
-        <span class="photo-theme-sub" style="color: black; font-family: Calibri; font-size: 1.1rem; margin-bottom: 0.8rem;"> Random sribbles when I get bored </span>
-        <div class="photo-theme">
-          <div class="photo-grid">
-            <div class="photo-wrap-wm"><img src="photos/studio_work/learning_to_fly.png" alt="Sketch by Tathagata Saha" style="width:260px;height:360px;object-fit:cover;border-radius:2px;border:1px solid rgba(255,255,255,0.1);" /></div>
-            <div class="photo-wrap-wm"><img src="photos/studio_work/me.png" alt="Sketch by Tathagata Saha" style="width:260px;height:360px;object-fit:cover;border-radius:2px;border:1px solid rgba(255,255,255,0.1);" /></div>
-            <div class="photo-wrap-wm"><img src="photos/studio_work/me2.png" alt="Sketch by Tathagata Saha" style="width:260px;height:360px;object-fit:cover;border-radius:2px;border:1px solid rgba(255,255,255,0.1);" /></div>
-            <div class="photo-wrap-wm"><img src="photos/studio_work/twentysecondlevel.png" alt="Sketch by Tathagata Saha" style="width:260px;height:360px;object-fit:cover;border-radius:2px;border:1px solid rgba(255,255,255,0.1);" /></div>
-            <div class="photo-wrap-wm"><img src="photos/studio_work/twentysecondlevel2.png" alt="Sketch by Tathagata Saha" style="width:260px;height:360px;object-fit:cover;border-radius:2px;border:1px solid rgba(255,255,255,0.1);" /></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
+    
   </div>
 
-
-  <!-- ── LIGHTBOX ── -->
-  <div id="lightbox">
-    <button id="lightbox-close" aria-label="Close">&#x2715;</button>
-    <button class="lb-arrow" id="lb-prev" aria-label="Previous">&#8592;</button>
-    <img id="lightbox-img" src="" alt="" />
-    <button class="lb-arrow" id="lb-next" aria-label="Next">&#8594;</button>
-    <span id="lb-counter"></span>
-  </div>
-
-  <script>
-    const lightbox  = document.getElementById('lightbox');
-    const lbImg     = document.getElementById('lightbox-img');
-    const lbClose   = document.getElementById('lightbox-close');
-    const lbPrev    = document.getElementById('lb-prev');
-    const lbNext    = document.getElementById('lb-next');
-    const lbCounter = document.getElementById('lb-counter');
-
-    let currentSet   = [];
-    let currentIndex = 0;
-
-    document.querySelectorAll('img').forEach(img => {
-      img.addEventListener('contextmenu', e => e.preventDefault());
-    });
-
-    // group by photo-theme: clicking opens all imgs within that theme
-    document.querySelectorAll('.photo-theme').forEach(theme => {
-      const imgs = Array.from(theme.querySelectorAll('.photo-grid img'));
-      imgs.forEach((img, i) => {
-        img.addEventListener('click', () => openLightbox(imgs, i));
-      });
-    });
-
-    document.querySelectorAll('.art-grid img').forEach((img, i, arr) => {
-      img.addEventListener('click', () => openLightbox(Array.from(arr), i));
-    });
-
-    function openLightbox(set, index) {
-      currentSet   = set;
-      currentIndex = index;
-      showImage();
-      lightbox.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function showImage() {
-      lbImg.src = currentSet[currentIndex].src;
-      lbImg.alt = currentSet[currentIndex].alt;
-      lbCounter.textContent = `${currentIndex + 1} / ${currentSet.length}`;
-      lbPrev.disabled = currentIndex === 0;
-      lbNext.disabled = currentIndex === currentSet.length - 1;
-    }
-
-    lbPrev.addEventListener('click', e => {
-      e.stopPropagation();
-      if (currentIndex > 0) { currentIndex--; showImage(); }
-    });
-
-    lbNext.addEventListener('click', e => {
-      e.stopPropagation();
-      if (currentIndex < currentSet.length - 1) { currentIndex++; showImage(); }
-    });
-
-    lbImg.addEventListener('contextmenu', e => e.preventDefault());
-
-    function closeLightbox() {
-      lightbox.classList.remove('active');
-      document.body.style.overflow = '';
-      lbImg.src = '';
-    }
-
-    lbClose.addEventListener('click', closeLightbox);
-    lightbox.addEventListener('click', e => {
-      if (e.target !== lbImg && e.target !== lbPrev && e.target !== lbNext) closeLightbox();
-    });
-    document.addEventListener('keydown', e => {
-      if (!lightbox.classList.contains('active')) return;
-      if (e.key === 'Escape')     closeLightbox();
-      if (e.key === 'ArrowLeft')  { if (currentIndex > 0) { currentIndex--; showImage(); } }
-      if (e.key === 'ArrowRight') { if (currentIndex < currentSet.length - 1) { currentIndex++; showImage(); } }
-    });
-  </script>
 
 </body>
 </html>
+
