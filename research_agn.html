@@ -8,6 +8,27 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+<style>
+  .page {
+    position: relative;
+    }
+    .page::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url('photos/eso1631a.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    z-index: 0;
+    pointer-events: none;
+    }
+    .page > * {
+    position: relative;
+    z-index: 1;
+    }
+</style>
 </head>
 <body>
 
@@ -25,10 +46,9 @@
     <section class="section">
       <div class="container">
 
-        <a href="research.html" style="font-family: Calibri; font-size: 1.2rem; color: darkslategray; text-decoration: none; letter-spacing: 0.06em; display: inline-block; margin-bottom: 2rem;"> Back to Research</a>
+        <a href="research.html" style="font-family: Calibri; font-size: 1.2rem; color: rgb(232, 238, 238); text-decoration: none; letter-spacing: 0.06em; display: inline-block; margin-bottom: 2rem;"> Back to Research</a>
 
-        <span class="eyebrow" style="font-family: Calibri; font-size: 2.4rem; color: darkslategray;">AGN transients· TDE/Changing-look AGNS · eROSITA</span>
-        <h2>Active Galactic Nuclei and Tidal Disruption Events</h2>
+        <span class="eyebrow" style="font-family: Calibri; font-size: 2.4rem; color: rgb(232, 238, 238);">AGN transients· TDE/Changing-look AGNS</span>
 
         <div class="research-block vertical-rule" style="margin-top: 2.5rem;">
           <h3>Active Galactic Nuclei and Tidal Disruption Events: Mass-Invariant Scaling in Accretion Processes</h3>
@@ -45,7 +65,7 @@
             </figure>
           </div>
 
-          <p style="font-family: Calibri; color: black; font-size: 1.0rem; margin: 1.5rem 0 1rem;">
+          <p style="font-family: Calibri; color: black; font-size: 1.5rem; margin: 1.5rem 0 1rem;">
             A part of my research focuses on the multiwavelength study of accreting supermassive black holes, particularly
             transient sources such as changing-look AGNs and tidal disruption events. I also study quiescent AGNs and their
             spectral variability, with a focus on evolving substructures such as the accretion disk, torus, and broad-line
@@ -54,10 +74,10 @@
             temperature, ionisation structure, and the coupling between the accretion disk, corona, BLR, and torus.
           </p>
 
-          <p style="font-family: Calibri; color: black; font-size: 1.0rem; margin-bottom: 1rem;">
+          <p style="font-family: Calibri; color: black; font-size: 1.5rem; margin-bottom: 1rem;">
             I have worked closely with the Close AGN Reference Survey (CARS) and the eROSITA collaboration to investigate
             the long-term spectral variability of changing-look AGNs (CLAGNs), including the well-studied CLAGN Mrk 1018
-            (Saha et al. 2025a), which exhibits characteristics similar to those observed in flaring black hole X-ray
+            (Saha et al. 2025a, also the background image), which exhibits characteristics similar to those observed in flaring black hole X-ray
             binaries. In collaboration with the eROSITA German collaboration, I have also undertaken multiwavelength
             follow-up campaigns of eROSITA-detected supermassive black hole transients, including CLAGNs and tidal
             disruption events, using XMM-Newton, SALT, and the VLT (Saha et al. 2025b; Markowitz et al. 2026, 2024;
@@ -73,7 +93,7 @@
             operate across black holes of different masses.
           </p>
 
-          <p style="font-family: Calibri; color: black; font-size: 1.0rem; margin-bottom: 1rem;">
+          <p style="font-family: Calibri; color: black; font-size: 1.5rem; margin-bottom: 1rem;">
             Furthermore, I greatly enjoy working closely with students and mentoring them on a range of AGN-based projects.
             I focus on developing their understanding of accretion onto compact objects, radiative processes in accreting
             systems, advanced statistical methods, mission-specific X-ray data reduction techniques (XMM-Newton, Chandra,
@@ -86,14 +106,10 @@
   </div>
 
   <footer>
-    <span class="footer-name">Tathagata Saha</span>
-    <div class="footer-links">
-      <a href="index.html">Home</a>
-      <a href="research.html">Research</a>
-      <a href="cv.html">CV</a>
-      <a href="beyond.html">Beyond astrophysics</a>
-    </div>
-  </footer>
+    <p>
+      The background image is downloaded from <a href="https://esahubble.org/images/eso1631a/" style="color:rgb(49, 49, 148)"> https://esahubble.org/images</a>. The central bright object is the Changing Look AGN and the merger candidate Markarian 1018. Credits: ESO/CARS survey
+    </p>
+    </footer>
 
 </body>
 </html>

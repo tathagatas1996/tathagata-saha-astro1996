@@ -112,6 +112,26 @@
     @media (max-width: 0px) {
       .research-cards { grid-template-columns: 1fr;}
     }
+
+    .page {
+    position: relative;
+    }
+    .page::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url('photos/potw2416a.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.6;  /* ← adjust this: 0.0 = invisible, 1.0 = full */
+    z-index: 0;
+    pointer-events: none;
+    }
+    .page > * {
+    position: relative;
+    z-index: 1;
+    }
   </style>
 </head>
 
@@ -135,15 +155,15 @@
     <section class="section">
       <div class="container">
  
-        <span class="eyebrow", style="font-family: Calibri; font-size: 2.4rem; color: darkslategray;">Research</span>
+        <span class="eyebrow", style="font-family: Calibri; font-size: 2.8rem; color: darkslategray;">Research</span>
         <!-- <h2>High-energy astrophysics of accreting objects</h2> -->
-        <p style="font-family: Calibri; color: black; font-size: 1.4rem; margin: 1.5rem 0 0;">
+        <p style="font-family: Calibri; color: black; font-size: 1.4rem; margin: 1.5rem 0 0; text-align: justify;">
           My research focuses on how matter accretes onto compact objects across a wide
           range of astrophysical environments. I study systems spanning from stellar-mass
           compact objects in X-ray binaries to supermassive black holes powering
           active galactic nuclei (AGN) and tidal disruption events (TDEs).
-          Using X-ray and multiwavelength observations, I investigate the physics of
-          accretion and the evolution of compact-object populations in nearby and distant galaxies.
+          My research interests on accreting objects include two focussed aspects; (a) understanding the evolution of stellar population in nearby galaxies from their accreting compact object population
+          (b) the time diverse trasient accretion processes in compact objects (stellar mass &harr; supermassive) to understand instabilities in accretion flow seen in CLAGNs, using X-ray and multiwavelength observations.
         </p>
  
         <div class="research-cards">
@@ -154,7 +174,7 @@
                    onerror="this.style.display='none'; this.parentNode.textContent='photos/card_agn.png'" />
             </div>
             <div class="research-card-body">
-              <span class="research-card-tag" style="font-family: Calibri; font-size: 0.88rem; color: darkslategray; letter-spacing: 0.04em; line-height: 1.5;">AGN · TDE · Changing-look Seyferts</span>
+              <span class="research-card-tag" style="font-family: Calibri; font-size: 15pt; color: darkslategray; letter-spacing: 0.04em; line-height: 1.5;">AGN · TDE · Changing-look Seyferts</span>
               <h3>Active Galactic Nuclei and Tidal Disruption Events</h3>
               <p>Multiwavelength study of transient accretion events onto supermassive black holes, including changing-look AGNs and TDEs, using eROSITA, XMM-Newton, and optical spectroscopy.</p>
               <span class="research-card-link" style="font-family: Calibri; font-size: 0.95rem; color: darkslategray; letter-spacing: 0.04em; line-height: 1.5;">Read more..</span>
@@ -342,6 +362,12 @@
         </div>
       </div>
     </section>
+
+  <footer>
+  <p style="width:100%; font-size:15pt; color:#272421; margin-top:0.5rem;">
+    The background image is downloaded from <a href="https://esahubble.org/images/potw2416a/" style="color:rgb(49, 49, 148)"> https://esahubble.org/images</a>. Abriged description from ESA Hubble Website: "NGC 3783 is a type-1 Seyfert galaxy. The very bright object in the lower right part of this image is the foreground star HD 101274". Credits: ESA/Hubble & NASA, M. C. Bentz, D. J. V. Rosario
+  </p>
+</footer>
   </div>
 
 

@@ -19,7 +19,7 @@
       margin-top: 3rem;
     }
     .research-card {
-      border: 4.0px solid var(--border);
+      border: 4.0px solid rgba(184, 149, 106, 0.5);
       border-radius: 4px;
       overflow: hidden;
       text-decoration: none;
@@ -112,6 +112,26 @@
     @media (max-width: 0px) {
       .research-cards { grid-template-columns: 1fr; }
     }
+
+    .page {
+    position: relative;
+    }
+    .page::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url('photos/air_craft.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.3;
+    z-index: 0;
+    pointer-events: none;
+    }
+    .page > * {
+    position: relative;
+    z-index: 1;
+    }
   </style>
 </head>
 
@@ -163,7 +183,7 @@
                    onerror="this.style.display='none'; this.parentNode.textContent='photos/urban_silhouettes_v2.png'" />
             </div>
             <div class="research-card-body">
-              <span class="research-card-tag" style="font-family: Calibri; font-size: 0.88rem; color: darkslategray; letter-spacing: 0.04em; line-height: 1.5;">Cities - artificial and beautiful</span>
+              <span class="research-card-tag" style="font-family: Calibri; font-size: 1.2rem; color: darkslategray; letter-spacing: 0.04em; line-height: 1.5;">Cities - artificial and beautiful</span>
               <h3>Urban Silhouettes</h3>
               <p style="color: black;">Lost amid the exuberant vitality of human agglomerations</p>
               <span class="research-card-link" style="font-family: Calibri; font-size: 0.95rem; color: darkslategray; letter-spacing: 0.04em; line-height: 1.5;">See more..</span>
@@ -176,7 +196,7 @@
                    onerror="this.style.display='none'; this.parentNode.textContent='photos/temple_image.png'" />
             </div>
             <div class="research-card-body">
-              <span class="research-card-tag" style="font-family: Calibri; font-size: 0.88rem; color: darkslategray; letter-spacing: 0.04em; line-height: 1.5;">History</span>
+              <span class="research-card-tag" style="font-family: Calibri; font-size: 1.2rem; color: darkslategray; letter-spacing: 0.04em; line-height: 1.5;">History</span>
               <h3>Temples, Monastries, and  Caves</h3>
               <p style="color:black"> Tathagata from the current era meets Tathagata from BCE at his residence, the Ajanta cave monastry.....</p>
               <span class="research-card-link" style="font-family: Calibri; font-size: 0.95rem; color: darkslategray; letter-spacing: 0.04em; line-height: 1.5;">See more..</span>
@@ -189,7 +209,7 @@
                     onerror="this.style.display='none'; this.parentNode.textContent='photos/card_code.png'" />
             </div>
             <div class="research-card-body">
-              <span class="research-card-tag" style="font-family: Calibri; font-size: 0.88rem; color: darkslategray; letter-spacing: 0.04em; line-height: 1.5;">Studio work</span>
+              <span class="research-card-tag" style="font-family: Calibri; font-size: 1.2rem; color: darkslategray; letter-spacing: 0.04em; line-height: 1.5;">Studio work</span>
               <p style="color: black;">Random scribbles when I get bored.</p>
               <span class="research-card-link" style="font-family: Calibri; font-size: 0.95rem; color: darkslategray; letter-spacing: 0.04em; line-height: 1.5;">See more..</span>
             </div>
@@ -197,6 +217,12 @@
  
         </div>
       </div>
+
+    <footer>
+      <p>
+        Aircrafts are majestic, ofcourse bigger the better, however taking a close-up picture of any aircraft is a previlege. This image of the 'tiny' and cute Air Nostrum CRJ 1000 is taken by me at Adolfo Suárez Madrid-Barajas Airport, while traveling to Alicante from Madrid for the X-ray Universe 2026 conference.
+      </p>
+    </footer>
     
   </div>
 
